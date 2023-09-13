@@ -34,3 +34,20 @@ page.add(t)  #cette ligne de code permet d'afficher 'Hello, world!' en vert sur 
 ## Contrôles de conteneur :
 
 Certains contrôles, comme **Row** et **Column**, agissent comme des conteneurs pour d'autres contrôles. Vous pouvez organiser les contrôles à l'intérieur de ces conteneurs pour créer des mises en page plus complexes.
+
+Nous pouvons aligner un champ de text et un text sur une meme ligne(row), en faisant:
+
+```python
+import flet as ft
+
+def main(page: ft.Page):
+    txtfield = ft.TextField(hint_text = "Ajoutez une nouvelle tache")
+    txt = ft.Text(value = "Ajouter")
+    page.add(
+            ft.Row([
+              txtfield,
+              txt,
+])
+)
+ft.app(target = main)
+``` 
