@@ -45,4 +45,5 @@ def main(page: ft.Page):
     txt = ft.Text(value = "Ajouter")
     page.add( ft.Row([ txtfield, txt ]))
 ft.app(target = main)
-``` 
+```
+Dans ce precedent code, le contrôle *row* permet d'aligner, les autres contrôles(txtfield et txt) horizontalement. Le contrôle *column* quand à lui permet d'organiser d'autres contrôles verticalement.
