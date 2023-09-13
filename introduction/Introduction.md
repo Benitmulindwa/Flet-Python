@@ -29,7 +29,7 @@ Pour rendre un contrôle visible, ajoutez-le à la liste des contrôles de la pa
 ```python
 page.add(t)  #cette ligne de code permet d'afficher 'Hello, world!' en vert sur l'ecran
 ```
-Here is a file [example](controls.py)
+[Ici](controls.py) il y a le fichier d'exemple. 
 
 ## Contrôles de conteneur :
 
