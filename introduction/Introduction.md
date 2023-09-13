@@ -41,13 +41,8 @@ Nous pouvons aligner un champ de text et un text sur une meme ligne(row), en fai
 import flet as ft
 
 def main(page: ft.Page):
-    txtfield = ft.TextField(hint_text = "Ajoutez une nouvelle tache")
+    txtfield = ft.TextField(hint_text = "Ajoutez une nouvelle tache", height=30, width=200)
     txt = ft.Text(value = "Ajouter")
-    page.add(
-            ft.Row([
-              txtfield,
-              txt,
-])
-)
+    page.add( ft.Row([ txtfield, txt ]))
 ft.app(target = main)
 ``` 
