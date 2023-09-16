@@ -47,3 +47,56 @@ def main(page: ft.Page):
 ft.app(target = main)
 ```
 Dans ce precedent code, le contrôle *row* permet d'aligner, les autres contrôles(txtfield et txt) horizontalement. Le contrôle *column* quand à lui permet d'organiser d'autres contrôles verticalement.
+
+# Les boutons:
+
+En Flet, les boutons sont des éléments d'interface utilisateur interactifs couramment utilisés pour déclencher des actions lorsque l'utilisateur les clique.
+
+## ElevetedButton
+
+```python
+import flet as ft
+
+def main(page: ft.Page):
+    # Créer un bouton avec du texte
+    basic_button = ft.ElevatedButton("Cliquez-moi !")
+    page.add(basic_button)
+ft.app(target=main)
+```
+## IconButton
+
+Le bouton d'icône(**IconButton**) en Flet vous permet d'afficher une icône au lieu de du texte.
+Vous pouvez l'utiliser pour des actions spécifiques qui sont mieux représentées par des icônes.
+La classe ft.IconButton est utilisée pour créer des boutons d'icône.
+
+```python
+import flet as ft
+
+# Créer un bouton d'icône avec une icône spécifiée
+icon_button = ft.IconButton(ft.icons.ADD)
+page.add(icon_button)
+```
+## Gestion des evenements en Flet:
+
+En programmation, un événement est un signal qu'un composant génère pour indiquer qu'une action spécifique s'est produite(l'appui d'un bouton). Les événements sont couramment utilisés pour gérer les interactions utilisateur, les entrées de données, les réponses aux actions de l'utilisateur et bien plus encore.
+
+Les gestionnaires d'événements sont des fonctions qui seront exécutées lorsque le bouton est cliqué.
+Vous pouvez spécifier un gestionnaire d'événements en utilisant l'argument __on_click__ lors de la création du bouton.
+
+```python
+
+import flet as ft
+
+def main(page: ft.Page):
+    def affiche(e):
+        txt = ft.Text("Hello guys!")
+        page.add(txt)
+        page.update()
+
+    # Créer un bouton avec du texte
+    basic_button = ft.ElevatedButton("Cliquez-moi !", on_click=affiche)
+    page.add(basic_button)
+
+ft.app(target=main)
+
+```
