@@ -85,9 +85,10 @@ Vous pouvez spécifier un gestionnaire d'événements en utilisant l'argument __
 
 ```python
 
-import flet as ft
-
 def main(page: ft.Page):
+    page.window_width = 490
+    page.window_height = 844
+
     def affiche(e):
         txt = ft.Text("Hello guys!")
         page.add(txt)
