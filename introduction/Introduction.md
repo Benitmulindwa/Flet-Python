@@ -50,7 +50,7 @@ Dans ce precedent code, le contrôle *row* permet d'aligner, les autres contrôl
 
 # Les boutons:
 
-En Flet, les boutons sont des éléments d'interface utilisateur interactifs couramment utilisés pour déclencher des actions lorsque l'utilisateur les clique.
+En Flet, les boutons sont des éléments d'interface utilisateur interactifs utilisés pour déclencher des actions lorsque l'utilisateur les clique.
 
 ## ElevetedButton
 
@@ -82,6 +82,8 @@ En programmation, un événement est un signal qu'un composant génère pour ind
 
 Les gestionnaires d'événements sont des fonctions qui seront exécutées lorsque le bouton est cliqué.
 Vous pouvez spécifier un gestionnaire d'événements en utilisant l'argument __on_click__ lors de la création du bouton.
+
+### Exemple
 
 ```python
 
