@@ -1,21 +1,26 @@
 import flet as ft
 
-def main(page:ft.Page):
 
-    page.title='Flet app' # Le titre de l'application
+# Fonction principale de l'application
+def main(page: ft.Page):
+    # Définit le titre de la page
+    page.title = "Flet app"
 
-    page.bgcolor='white' # La couleur du arrière-plan
+    # Définit la couleur de l'arrière-plan de la page
+    page.bgcolor = "white"
 
-    # Cree un champ de texte
-    champ = ft.TextField(value="", width=200, height=30 )
+    # Crée un champ de texte vide avec une largeur de 200 pixels et une hauteur de 30 pixels
+    champ = ft.TextField(value="", width=200, height=30)
 
-    # cree un text
-    text = ft.Text("Add a new task", color='black')
+    # Crée un élément de texte avec le contenu "Add a new task" et une couleur de texte noire
+    text = ft.Text("Afficher un text", color="black")
 
-    # Tous les 'controles' sont ajoutés à la page, pourque celles-ci puisses s'afficher à l'ecran
+    # Ajoute les contrôles (champ de texte et texte) à la page pour qu'ils puissent s'afficher à l'écran
     page.add(
         champ,
-        text, 
-        )
+        text,
+    )
 
+
+# Lance l'application Flet avec la fonction principale comme point d'entrée
 ft.app(target=main)
