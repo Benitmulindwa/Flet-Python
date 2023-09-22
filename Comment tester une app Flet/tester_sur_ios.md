@@ -4,7 +4,7 @@
 
 *Assurez-vous que votre appareil iOS et votre ordinateur sont connectés au même réseau Wi-Fi ou au même réseau local. Cela garantira la communication entre les deux.*
 
-2. Sur votre ordinateur, vous devez avoir *Python 3.7* ou une version ultérieure installée. Si ce n'est pas le cas, vous devrez l'installer.
+2. **Sur votre ordinateur, vous devez avoir *Python 3.7* ou une version ultérieure installée.** Si ce n'est pas le cas, vous devrez l'installer.
 
 ```bash
 pip install flet --upgrade
@@ -15,7 +15,7 @@ Créez un nouveau projet Flet en exécutant la commande suivante :
 flet create my-app
 cd my-app
 ```
-3. Exécutez la commande suivante pour démarrer le serveur de développement Flet avec votre application :
+3. **Exécutez la commande suivante pour démarrer le serveur de développement Flet avec votre application:**
 
 ```bah
 flet run --ios
@@ -23,11 +23,9 @@ flet run --ios
 
 *Un code QR avec l'URL de votre projet encodée sera affiché dans le terminal.*
 
-4. Scannez celui-ci avec votre appareil iOS, le code QR et le lien s'Ouvrira dans Flet".
+4. **Scannez ce code QR  avec votre appareil iOS, et le lien s'ouvrira dans Flet.**
 
 *Si une boîte de dialogue demandant l'autorisation d'accéder à votre réseau local s'affiche. Cliquez sur "Autoriser" et vous devriez voir votre application Flet s'exécuter sur votre appareil iOS.*
-
-Essayez de mettre à jour le fichier main.py. Par exemple, remplacez un message de salutation dans un contrôle Text. L'application sera instantanément actualisée sur votre appareil iOS.
 
 Pour revenir à l'onglet "Accueil", vous pouvez soit :
 
