@@ -17,8 +17,12 @@ def main(page: ft.Page):
 
     # Ajoute les contrôles (champ de texte et texte) à la page pour qu'ils puissent s'afficher à l'écran
     page.add(
-        champ,
-        text,
+        ft.Row(
+            [
+                champ,
+                text,
+            ]
+        )
     )
 
 
