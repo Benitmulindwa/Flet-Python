@@ -12,7 +12,6 @@ pip install flet --upgrade
 Créez un nouveau projet Flet en exécutant la commande suivante :
 
 ```bash
-Copy code
 flet create my-app
 cd my-app
 ```
