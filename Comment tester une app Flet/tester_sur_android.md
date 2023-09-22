@@ -1,4 +1,4 @@
-Ce guide explique comment tester une application Flet sur un appareil Android. Voici les étapes à suivre pour tester votre application Flet sur Android :
+# Tester son application Flet sur Android
 
 1. **Installez l'application Flet sur votre appareil Android**. Vous utiliserez cette application pour voir comment fonctionne votre projet Flet sur votre appareil Android. Vous pouvez la télécharger depuis Google Play.
 
