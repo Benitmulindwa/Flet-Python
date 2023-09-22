@@ -1,6 +1,6 @@
 # Tester son application Flet sur Android
 
-1. **Installez l'application Flet sur votre appareil Android**. Vous utiliserez cette application pour voir comment fonctionne votre projet Flet sur votre appareil Android. Vous pouvez la télécharger depuis Google Play.
+1. **Installez l'application Flet sur votre appareil Android**. Vous utiliserez cette application pour voir comment fonctionne votre projet Flet sur votre appareil Android. Vous pouvez la télécharger depuis [Google Play](https://play.google.com/store/apps/details?id=com.appveyor.flet&pli=1).
 
 2. **Assurez-vous que votre appareil Android et votre ordinateur sont connectés au même réseau Wi-Fi ou au même réseau local**. Cela garantira la communication entre les deux.
 
