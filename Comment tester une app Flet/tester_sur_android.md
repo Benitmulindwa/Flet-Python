@@ -25,12 +25,12 @@
 
 8. **Essayez de mettre à jour le fichier main.py**. Par exemple, remplacez un message de salutation dans un contrôle Text. L'application sera instantanément actualisée sur votre appareil Android.
 
-9. Pour revenir à l'onglet "Accueil", vous pouvez soit :
+9. **Pour revenir à l'onglet "Accueil", vous pouvez soit:**
     - Appuyer longuement n'importe où sur l'écran avec trois doigts.
     - Secouer votre appareil Android.
 
 10. Vous pouvez également **ajouter manuellement un nouveau projet** en cliquant sur le bouton "+" et en saisissant son URL.
 
-11. Consultez l'onglet "Galerie" de l'application Flet pour découvrir quelques exemples de projets Flet intéressants. Vous pouvez également explorer les exemples Flet pour voir davantage d'exemples.
+11. **Consultez l'onglet "Galerie" de l'application Flet pour découvrir quelques exemples de projets Flet intéressants.** Vous pouvez également explorer les exemples Flet pour voir davantage d'exemples.
 
 En suivant ces étapes, vous pourrez tester et développer des applications Flet sur votre appareil Android.
