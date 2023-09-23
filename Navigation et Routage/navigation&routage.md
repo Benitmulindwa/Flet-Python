@@ -2,13 +2,17 @@
 
 La navigation et le routage sont des fonctionnalités essentielles des applications à page unique (SPA). La navigation et le routage permettent d'organiser l'interface utilisateur de l'application en pages virtuelles (vues) et de "naviguer" entre elles, tout en reflétant l'état actuel de l'application dans l'URL.
 
-### Voici un résumé des concepts et des étapes clés associées à la navigation et au routage dans Flet :
+### Route de page :
 
-Route de page : Une route de page est une partie de l'URL de l'application après le symbole #. Par exemple, /store, /authors/1/books/2 sont des routes de page.
+Une route de page est une partie de l'URL de l'application.
+```http://localhost/store```
+Par exemple, ```/store```, ```/authors/1/books/2``` sont des routes de page.
 
-Route par défaut : Si l'utilisateur ne définit pas de route dans l'URL de l'application, la route par défaut est /. Toutes les routes commencent par /.
+**Route par défaut :** Si l'utilisateur ne définit pas de route dans l'URL de l'application, la route par défaut est */*. Toutes les routes commencent par */*.
 
-Obtention de la route de l'application : Vous pouvez obtenir la route actuelle de l'application en lisant la propriété page.route. Par exemple :
+**Obtention de la route de l'application :** Vous pouvez obtenir la route actuelle de l'application en lisant la propriété ```page.route```. 
+
+Par exemple :
 
 ```python
 
@@ -21,7 +25,11 @@ ft.app(target=main, view=ft.AppView.WEB_BROWSER)
 ```
 En modifiant la partie de l'URL après # en /test et en appuyant sur Entrée, vous verrez "Route initiale : /test".
 
-Gestion des changements de route : Vous pouvez gérer les changements de route en définissant un gestionnaire d'événements page.on_route_change. Par exemple :
+### Gestion des changements de route: 
+
+Vous pouvez gérer les changements de route en définissant un gestionnaire d'événements ```page.on_route_change```. 
+
+Par exemple :
 
 ```python
 import flet as ft
@@ -39,7 +47,11 @@ ft.app(target=main, view=ft.AppView.WEB_BROWSER)
 ```
 Maintenant, essayez de mettre à jour le hachage de l'URL quelques fois et utilisez les boutons Précédent/Suivant du navigateur ! Vous devriez voir un nouveau message ajouté à la page à chaque fois que la route change.
 
-Changement de route programmable : Vous pouvez changer la route programmable en mettant à jour la propriété page.route. Par exemple :
+### Changement de route programmable:
+
+Vous pouvez changer la route programmable en mettant à jour la propriété ```page.route```.
+
+*Par exemple :*
 
 ```python
 
