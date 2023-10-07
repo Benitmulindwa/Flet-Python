@@ -6,15 +6,22 @@ import requests
 days = ["Lun", "Mar", "Merc", "Jeu", "Ven", "Sam", "Dim"]
 # days = days.reverse()
 
-api_key = "51d41def3853c03a1bc043740f6ca100"
+api_key1 = "API_KEY"
 lon = 36.81
 lat = -1.28
 
-parameters = {"lon": lon, "lat": lat, "appid": api_key}
-end_point = "https://api.openweathermap.org/data/2.5/weather"
-response = requests.get(end_point, params=parameters)
-
+parameters = {"lon": lon, "lat": lat, "appid": api_key1}
+end_point1 = "https://api.openweathermap.org/data/2.5/weather"
+response = requests.get(end_point1, params=parameters)
 _current = response.json()
+
+api_key2 = "API_KEY"
+town = "Nairobi"
+endpoint2 = (
+    f"http://api.weatherapi.com/v1/forecast.json?key={api_key2}&q={town}&days=8&lang=fr"
+)
+
+_p = requests.get(endpoint2).json()
 
 
 def main(page: flet.Page):
@@ -319,8 +326,18 @@ def main(page: flet.Page):
                                                 width=20,
                                                 height=20,
                                                 alignment=alignment.center_left,
-                                                content=Image(src=None),
-                                            )
+                                                content=Image(
+                                                    src=f"{_p['forecast']['forecastday'][index]['day']['condition']['icon'][20:]}",
+                                                ),
+                                            ),
+                                            Text(
+                                                _p["forecast"]["forecastday"][index][
+                                                    "day"
+                                                ]["condition"]["text"],
+                                                size=11,
+                                                color="white54",
+                                                text_align="center",
+                                            ),
                                         ],
                                     )
                                 )
