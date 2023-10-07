@@ -1,8 +1,20 @@
 import flet
 from flet import *
 from datetime import datetime
+import requests
 
 days = ["Lun", "Mar", "Merc", "Jeu", "Ven", "Sam", "Dim"]
+# days = days.reverse()
+
+api_key = "51d41def3853c03a1bc043740f6ca100"
+lon = 36.81
+lat = -1.28
+
+parameters = {"lon": lon, "lat": lat, "appid": api_key}
+end_point = "https://api.openweathermap.org/data/2.5/weather"
+response = requests.get(end_point, params=parameters)
+
+_current = response.json()
 
 
 def main(page: flet.Page):
@@ -11,19 +23,19 @@ def main(page: flet.Page):
 
     def _expand(e):
         if e.data == "true":
-            _c.content.controls[0].height = 560
-            _c.content.controls[0].update()
+            _c.content.controls[1].height = 560
+            _c.content.controls[1].update()
         else:
-            _c.content.controls[0].height = 660 * 0.40
-            _c.content.controls[0].update()
+            _c.content.controls[1].height = 660 * 0.40
+            _c.content.controls[1].update()
 
     def _current_temp():
-        _current_temp = 28
-        _current_humidity = 3
-        _current_weather = "Nuages"
-        _current_description = "Le ciel est d'un bleu pur et sans nuages aujourd'hui. Le soleil rayonne, réchauffant l'atmosphère d'une douce chaleur. Une brise légère souffle de temps en temps, apportant un soulagement bienvenu. Les températures sont agréables, invitant à profiter du temps en plein air. En soirée, le ciel se teinte de nuances chaudes au coucher du soleil, créant une atmosphère paisible. Les étoiles commencent à scintiller dans la nuit, promettant une soirée étoilée. Un temps idéal pour profiter de la journée et de la soirée en toute simplicité."
-        _current_wind = 220
-        _current_feels = "good"
+        _current_temp = round(_current["main"]["temp"] - 273.15, 1)
+        _current_humidity = _current["main"]["humidity"]
+        _current_weather = _current["weather"][0]["main"]
+        _current_description = _current["weather"][0]["description"]
+        _current_wind = _current["wind"]["speed"]
+        _current_feels = round(_current["main"]["temp"] - 273.15, 1)
 
         return [
             _current_temp,
@@ -38,10 +50,20 @@ def main(page: flet.Page):
         _extra_info = []
 
         _extra = [
-            [0.80, "Km", "Visibilité", "visibility.png"],
-            [6500, "inHg", "Pression", "barometer.png"],
-            [datetime.now().time(), "", "Aube", "sunset.png"],
-            [datetime.now().time(), "", "Crépuscule", "sunrise.png"],
+            [int(_current["visibility"]) / 1000, "Km", "Visibilité", "visibility.png"],
+            [_current["main"]["pressure"] * 0.3, "inHg", "Pression", "barometer.png"],
+            [
+                datetime.fromtimestamp(_current["sys"]["sunset"]).strftime("%I:%M %p"),
+                "",
+                "Aube",
+                "sunset.png",
+            ],
+            [
+                datetime.fromtimestamp(_current["sys"]["sunrise"]).strftime("%I:%M %p"),
+                "",
+                "Crépuscule",
+                "sunrise.png",
+            ],
         ]
 
         for data in _extra:
@@ -260,6 +282,71 @@ def main(page: flet.Page):
         )
         return top
 
+    def _bot_data():
+        _bot_data = []
+        for index in range(1, 8):
+            _bot_data.append(
+                Row(
+                    spacing=5,
+                    alignment="spaceBetween",
+                    controls=[
+                        Row(
+                            expand=1,
+                            alignment="start",
+                            controls=[
+                                Container(
+                                    alignment=alignment.center,
+                                    content=Text(
+                                        days[
+                                            index
+                                            + 3
+                                            - datetime.weekday(
+                                                datetime.fromtimestamp(_current["dt"])
+                                            )
+                                        ]
+                                    ),
+                                )
+                            ],
+                        ),
+                        Row(
+                            expand=1,
+                            controls=[
+                                Container(
+                                    content=Row(
+                                        alignment="start",
+                                        controls=[
+                                            Container(
+                                                width=20,
+                                                height=20,
+                                                alignment=alignment.center_left,
+                                                content=Image(src=None),
+                                            )
+                                        ],
+                                    )
+                                )
+                            ],
+                        ),
+                    ],
+                )
+            )
+        return _bot_data
+
+    def _bottom():
+        _bot_column = Column(
+            alignment="center",
+            horizontal_alignment="center",
+            spacing=25,
+        )
+        for data in _bot_data():
+            _bot_column.controls.append(data)
+
+        bottom = Container(
+            padding=padding.only(top=280, left=20, right=20, bottom=20),
+            content=_bot_column,
+        )
+
+        return bottom
+
     _c = Container(
         # width=310,
         # height=660,
@@ -267,7 +354,7 @@ def main(page: flet.Page):
         border_radius=35,
         bgcolor="black",
         padding=10,
-        content=Stack(expand=True, controls=[_top()]),
+        content=Stack(expand=True, controls=[_bottom(), _top()]),
     )
     page.add(_c)
 
