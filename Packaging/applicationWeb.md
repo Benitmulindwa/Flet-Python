@@ -29,13 +29,13 @@ Le site web statique est publié dans le répertoire **./dist**.
 
 #### Arguments optionnels de la commande :
 
-```--pre``` : autorise micropip à installer des packages Python pré-versionnés.
-```-a ASSETS_DIR, --assets ASSETS_DIR``` : chemin vers un répertoire d'assets.
-```--app-title APP_TITLE``` : titre de l'application.
-```--app-description APP_DESCRIPTION``` : description de l'application.
-```--base-url BASE_URL``` : URL de base pour l'application.
-```--web-renderer {canvaskit,html}``` : moteur web à utiliser.
-```--route-url-strategy {path,hash}``` : stratégie d'URL.
+- ```--pre``` : autorise micropip à installer des packages Python pré-versionnés.
+- ```-a ASSETS_DIR, --assets ASSETS_DIR``` : chemin vers un répertoire d'assets.
+- ```--app-title APP_TITLE``` : titre de l'application.
+- ```--app-description APP_DESCRIPTION``` : description de l'application.
+- ```--base-url BASE_URL``` : URL de base pour l'application.
+- ```--web-renderer {canvaskit,html}``` : moteur web à utiliser.
+- ```--route-url-strategy {path,hash}``` : stratégie d'URL.
 
 #### Test du site web
 
