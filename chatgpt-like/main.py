@@ -88,7 +88,7 @@ def main(page: ft.Page):
     page.horizontal_alignment = "center"
     page.vertical_alignment = "center"
     page.theme_mode = "dark"
-    
+
     main = MainContentArea()
     prompt = Prompt(main.chat)
 
