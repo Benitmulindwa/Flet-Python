@@ -23,7 +23,7 @@ def main(page: Page):
             e.control.bgcolor = "transparent"
             e.control.scale = 1.0
             e.control.border = (
-                border.all(color="black")
+                border.all(color="#c8c8c8")
                 if BGCOLOR == "#acd8a7"
                 else border.all(color="transparent")
             )
@@ -59,8 +59,12 @@ def main(page: Page):
 
         # The main container is moved to its initial position
         login_container.top = page.height // 2
-        login_container.left = page.width // 2
+        login_container.left = page.width // 2 - 50
         page.update()
+
+    def textfield_hovered(e):
+        e.control.scale = 1.05 if e.data == "true" else 1
+        e.control.update()
 
     def animate_container(e):
         # Change the main container's position
@@ -69,7 +73,7 @@ def main(page: Page):
         page.update()
         sleep(0.5)  # A delay of 500ms before the container reaches the top and opens up
         login_container.width = 350
-        login_container.height = 270
+        login_container.height = 250
         login_container.border_radius = 20
         login_container.on_hover = None
         login_container.on_click = None
@@ -95,11 +99,16 @@ def main(page: Page):
                     margin=margin.only(left=15, top=15),
                     alignment=alignment.center,
                     data="clase",
+                    offset=transform.Offset(0.6, 0),
+                    animate_offset=animation.Animation(300, AnimationCurve.DECELERATE),
                     on_click=on_close_event,
                     on_hover=lambda e: on_hover_event(e, "#ffcbd1", "#c30010"),
                 ),
                 Container(
-                    Text("Email:", weight=FontWeight.W_500), margin=margin.only(left=15)
+                    Text("Email:", weight=FontWeight.W_700),
+                    margin=margin.only(left=15),
+                    offset=transform.Offset(-0.6, 0),
+                    animate_offset=animation.Animation(300, AnimationCurve.DECELERATE),
                 ),
                 Container(
                     TextField(
@@ -108,14 +117,23 @@ def main(page: Page):
                         bgcolor="#f0f0f0",
                         content_padding=8,
                         border_color="transparent",
+                        cursor_color="#4b4b4b",
                         focused_border_color="transparent",
-                        offset=transform.Offset(1, 0),
+                        hint_text="example@gmail.com",
+                        text_style=TextStyle(weight=FontWeight.W_600),
+                        offset=transform.Offset(0.5, 0),
+                        animate_offset=animation.Animation(
+                            400, AnimationCurve.DECELERATE
+                        ),
                     ),
                     margin=margin.only(left=15, right=15),
+                    on_hover=textfield_hovered,
                 ),
                 Container(
-                    Text("Password:", weight=FontWeight.W_500),
+                    Text("Password:", weight=FontWeight.W_700),
                     margin=margin.only(left=15),
+                    offset=transform.Offset(0.6, 0),
+                    animate_offset=animation.Animation(300, AnimationCurve.DECELERATE),
                 ),
                 Container(
                     TextField(
@@ -125,8 +143,14 @@ def main(page: Page):
                         content_padding=8,
                         border_color="transparent",
                         focused_border_color="transparent",
+                        cursor_color="#4b4b4b",
+                        offset=transform.Offset(-1, 0),
+                        animate_offset=animation.Animation(
+                            400, AnimationCurve.DECELERATE
+                        ),
                     ),
                     margin=margin.only(left=15, right=15),
+                    on_hover=textfield_hovered,
                 ),
                 # Submit button
                 Container(
@@ -146,9 +170,10 @@ def main(page: Page):
                     width=110,
                     border_radius=10,
                     border=border.all(width=1.2, color="transparent"),
-                    # alignment=alignment.center,
                     margin=margin.only(left=220),
                     padding=padding.only(left=7),
+                    offset=transform.Offset(-0.4, 0),
+                    animate_offset=animation.Animation(300, AnimationCurve.DECELERATE),
                     on_click=on_login_event,
                     on_hover=lambda e: on_hover_event(e, "#cce7c9", "#276221"),
                 ),
@@ -156,11 +181,22 @@ def main(page: Page):
             horizontal_alignment=CrossAxisAlignment.START,
         )
         login_container.update()
-        sleep(0.5)
+        sleep(0.05)
+        login_container.content.controls[0].offset = transform.Offset(0, 0)
+        login_container.content.controls[1].offset = transform.Offset(0, 0)
         login_container.content.controls[2].content.offset = transform.Offset(0, 0)
+        login_container.content.controls[3].offset = transform.Offset(0, 0)
+        login_container.content.controls[4].content.offset = transform.Offset(0, 0)
+        login_container.content.controls[5].offset = transform.Offset(0, 0)
+
+        login_container.content.controls[0].update()
+        login_container.content.controls[1].update()
         login_container.content.controls[2].content.update()
+        login_container.content.controls[3].update()
+        login_container.content.controls[4].content.update()
+        login_container.content.controls[5].update()
         login_container.update()
-        # page.update()
+        page.update()
 
     # Main container
     login_container = Container(
@@ -177,13 +213,13 @@ def main(page: Page):
         # expand=True,
         width=100,
         height=30,
-        left=page.width // 2,
+        left=page.width // 2 -50,
         top=page.height // 2,
         bgcolor="transparent",
         animate_position=500,
         border_radius=10,
         alignment=alignment.center,
-        border=border.all(width=1.2, color="black"),
+        border=border.all(width=1.2, color="#c8c8c8"),
         on_hover=lambda e: on_hover_event(e, "#acd8a7", "#276221"),
         on_click=animate_container,
     )
